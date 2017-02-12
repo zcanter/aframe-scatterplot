@@ -1,4 +1,4 @@
-# WebVR (Drag and Drop) Scatterplot
+# WebVR Drag and Drop Scatterplot 
 Utilizing the [a-scatterplot] A-Frame component this project makes a quick visualzation of JSON data. See it [here].
 
 
