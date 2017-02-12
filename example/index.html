@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AFrame scatterplot</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.4.0/aframe.min.js" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.4.1/d3.min.js"></script>
+	<script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+	<script src="../dist/a-scatterplot.js"></script>
+</head>
+<body>
+<a-scene>
+	<a-scatterplot src="url(sample-data/analysedsst.json)" title="Analysed SST" x="lat" y="val" z="lon" val="val" colorpreset="hot" valfill="-32768, 4506" relationship="xz" ylimit="0.2" scale="6 6 6" pointsize="1"></a-scatterplot>
+
+	<a-scatterplot src="url(sample_data/analysedsst.json)"></a-scatterplot>
+
+
+	<!-- <a-scatterplot src="url(sample_data/topo.json)" title="Topograpahy" x="x" y="z" z="y" val="z" colorpreset="jet" relationship="xz" ylimit="0.2" scale="6 6 6" pointsize="10"></a-scatterplot> -->
+	<!-- <a-scatterplot src="url(sample_data/polen.json)" x="Lat" y="Elev" z="Lon" val="Betula" colorpreset="jet" valfill="-32768, 4506" relationship="xz" ylimit="0.2" scale="5 5 5" position="5 0 0" pointsize="5"></a-scatterplot> -->
+	<!-- <a-scatterplot src="url(sample_data/sample1.json)" x="Sample4" y="Sample2" z="Sample3" val="Sample1" colorpreset="jet" valfill="-32768, 4506" relationship="xyz" ylimit="0.2" scale="6 6 6" pointsize="10.5"></a-scatterplot> -->
+	<!-- <a-scatterplot src="url(sample_data/orism.json)" x="Lat" y="TJul1x" z="Lon" val="TJan2x" colorpreset="jet" relationship="xz" ylimit="0.2" scale="6 6 6" pointsize="15.5"></a-scatterplot> -->
+	<!-- <a-scatterplot src="url(sample_data/streams.json)" x="ReachLen" y="Pools" z="DeepPools" val="LrgLWD" colorpreset="jet" relationship="" ylimit="0.2" scale="6 6 6" pointsize="15.5"></a-scatterplot> -->
+	<!-- <a-scatterplot src="url(sample_data/cities.json)" x="Pop 1980" y="Pop 1990" z="Pop 2000" val="Food" colorpreset="jet" relationship="xyz" scale="6 6 6" pointsize="17"></a-scatterplot> -->
+	<!-- <a-sky src="../sst.jpg"></a-sky> -->
+	<a-sky></a-sky>
+</a-scene>
+</body>
+</html>
