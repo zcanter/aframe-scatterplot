@@ -1,5 +1,13 @@
 # Drag and Drop WebVR Scatterplot 
+
+### Introduction
+
+This tool makes 3D data visualizations which can be viewed in virtual reality in the browser. At the time of this writing it's browser support is sort of experimental. If you do have a VR headset here is a tutorial on how to make it work. Hopefully by the time you are reading this WebVR support is more mainstream. Check it's standardization [here].
+
+This tool was built using the a-scatterplot component which is an emeddable html entity using A-Frame io created by Mozilla. If you would like to utize that check out the [github].
+
 Utilizing the [a-scatterplot] A-Frame component this project makes a quick visualzation of JSON data. See it [here].
+
 
 
 - introduction
@@ -9,11 +17,7 @@ Utilizing the [a-scatterplot] A-Frame component this project makes a quick visua
 
 
 
-### Introduction
 
-This tool makes 3D data visualizations which can be viewed in virtual reality in the browser. At the time of this writing it's browser support is sort of experimental. If you do have a VR headset here is a tutorial on how to make it work. Hopefully by the time you are reading this WebVR support is more mainstream. Check it's standardization [here].
-
-This tool was built using the a-scatterplot component which is an emeddable html entity using A-Frame io created by Mozilla. If you would like to utize that check out the [github].
 
 ### Usage
 
