@@ -3,6 +3,9 @@ Utilizing the [a-scatterplot] A-Frame component this project makes a quick visua
 
 ### Usage
 
+The preloaded example dataset contains the values of sea surface temperature readings at a 1km resolution. It is possible to drag your own data in as you would like.
+
+
 #### Browser Installation
 
 Install and use by directly including the [browser file](dist):
