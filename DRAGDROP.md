@@ -1,6 +1,17 @@
 # VR-enabled Drag and Drop JSON data visualizer
 Utilizing the [a-scatterplot] A-Frame component this project makes a quick visualzation of JSON data.
 
+
+- introduction
+- formatting
+- usage
+
+
+
+### Description
+
+Quick visualiztion of your JSON dataset. 
+
 ### Usage
 
 The preloaded example dataset contains the values of sea surface temperature readings at a 1km resolution. It is possible to drag your own data in as you would like.
