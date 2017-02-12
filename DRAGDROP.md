@@ -1,4 +1,4 @@
-# 3D VR-enabled Drag and Drop JSON data visualizer
+# VR-enabled Drag and Drop JSON data visualizer
 Utilizing the [a-scatterplot] A-Frame component this project makes a quick visualzation of JSON data.
 
 ### Usage
