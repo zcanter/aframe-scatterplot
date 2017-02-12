@@ -1,7 +1,5 @@
-# 3D VR-enabled Drag and Drop JSON visualization
-A gradient sky component for the A-Frame WebVR Framework.
-
-Check out the: [Gradient Sky Example](https://zcanter.github.io/aframe-gradient-sky/)
+# 3D VR-enabled Drag and Drop JSON data visualizer
+Utilizing the [a-scatterplot] A-Frame component this project makes a quick visualzation of JSON data.
 
 ### Usage
 
