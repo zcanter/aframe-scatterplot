@@ -14,10 +14,13 @@ Check out the example application:
 
 Install and use by directly including the [browser file](dist):
 
+You must also include a link the [D3](https://d3js.org/) JavaScript data visualization framework.
+
 ```html
 <head>
   <title>My A-Frame Scene</title>
   <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.4.1/d3.min.js"></script>
   <script src="https://cdn.rawgit.com/zcanter/aframe-scatterplot/master/dist/a-scatterplot.min.js"></script>
 </head>
 
@@ -33,6 +36,8 @@ Install and use by directly including the [browser file](dist):
 Install via NPM:
 
 ```bash
+npm install aframe
+npm install d3
 npm install aframe-scatterplot
 ```
 
@@ -40,6 +45,7 @@ Then register and use.
 
 ```js
 require('aframe');
+require('d3');
 require('aframe-scatterplot');
 ```
 
