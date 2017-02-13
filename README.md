@@ -140,9 +140,9 @@ Example datasets can be found [here](https://github.com/zcanter/aframe-scatterpl
 | xfill | -45, 63 | Fill or ignored values in X dimension | none|
 | yfill | -78 | Fill or ignored values in Y dimension | none|
 | zfill | 12 | Fill or ignored values in Z dimension | none|
-| xLimit | 0.7 | Fill value or desired ignored value in X dimension | 1|
-| yLimit | 0.5 | Fill value or desired ignored value in X dimension | 1|
-| zLimit | 0.2 | Fill value or desired ignored value in X dimension | 1|
+| xLimit | 0.7 | Limit of relative X dimension width in 3D space | 1|
+| yLimit | 0.5 | Limit of relative Y dimension width in 3D space | 1|
+| zLimit | 0.2 | Limit of relative Z dimension width in 3D space | 1|
 | xFlip | true | Invert the X shape | false |
 | yFlip | true | Invert the Y shape | false |
 | zFlip | true | Invert the Z shape | false |
