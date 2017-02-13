@@ -8,6 +8,39 @@ It is important to note that if you intend to use the VR capabilities of this to
 
 Also to use this tool you must have a browser that supports WebGL. Most modern browsers support WebGL but you can double check [here](https://get.webgl.org/).
 
+#### Browser Installation
+
+Install and use by directly including the [browser file](dist):
+
+```html
+<head>
+  <title>My A-Frame Scene</title>
+  <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-gradient-sky material="shader: gradient; topColor: 255 0 0; bottomColor: 0 121 255;"></a-gradient-sky>
+  </a-scene>
+</body>
+```
+
+#### NPM Installation
+
+Install via NPM:
+
+```bash
+npm install aframe-gradient-sky
+```
+
+Then register and use.
+
+```js
+require('aframe');
+require('aframe-gradient-sky');
+```
+
 ### Data Formatting
 
 Datasets should be formatted as follows:
