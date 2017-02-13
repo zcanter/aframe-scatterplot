@@ -2,7 +2,7 @@
 
 ### Introduction
 
-An all purpose data visualization componenet for the [AFrame]() WebVR Framework.
+An all purpose data visualization componenet for the [AFrame](https://aframe.io/) WebVR Framework.
 
 Check out the example application: 
 
