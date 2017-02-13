@@ -8,6 +8,11 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'a-scatterplot.js',
+    filename: 'a-scatterplot.min.js',
   },
+  plugins:[
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    })
+  ]
 };

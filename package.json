@@ -1,0 +1,36 @@
+{
+  "name": "aframe-scatterplot",
+  "version": "1.0.0",
+  "description": "AFrame JSON data scatterplot component",
+  "main": "./dist/a-scatterplot.min.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://zcanter@github.com/zcanter/aframe-scatterplot.git"
+  },
+  "keywords": [
+    "aframe",
+    "webvr",
+    "datavis"
+  ],
+  "author": "Zac Canter <zrcanter@gmail.com> (https://github.com/zcanter)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zcanter/aframe-scatterplot/issues"
+  },
+  "homepage": "https://github.com/zcanter/aframe-scatterplot#readme",
+  "devDependencies": {
+    "json-loader": "^0.5.4",
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "load-bmfont": "^1.3.0",
+    "object-assign": "^4.1.1",
+    "three-bmfont-text": "^2.2.1"
+  }
+}
