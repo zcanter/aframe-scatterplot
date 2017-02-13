@@ -2,26 +2,29 @@
 
 ### Introduction
 
-This tool allows users to create web-based VR-enabled data visualiztions by dragging and dropping JSON datasets into the browser window. It is both an end user visualzation tool and an example implementation of the [a-scatterplot](https://github.com/zcanter/aframe-scatterplot) AFrame VR component. 
+An all purpose scatterplot component for the [AFrame](https://aframe.io/) WebVR Framework.
 
-It is important to note that if you intend to use the VR capabilities of this tool, you need to have a browser that implements the experimental WebVR JavaScript API. Check [here](https://webvr.info/) for information on how to get a WebVR enabled browser.
+Check out the example application: http://
 
-Also to use this tool you must have a browser that supports WebGL. Most modern browsers support WebGL but you can double check [here](https://get.webgl.org/).
+![A-Frame Scatterplot](https://cloud.githubusercontent.com/assets/5613001/22870157/da185304-f159-11e6-94ba-7e9a33f9dd02.png)
 
 #### Browser Installation
 
 Install and use by directly including the [browser file](dist):
 
+You must also include a link the [D3](https://d3js.org/) JavaScript data visualization framework.
+
 ```html
 <head>
   <title>My A-Frame Scene</title>
-  <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+  <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.4.1/d3.min.js"></script>
+  <script src="https://cdn.rawgit.com/zcanter/aframe-scatterplot/master/dist/a-scatterplot.min.js"></script>
 </head>
 
 <body>
   <a-scene>
-    <a-gradient-sky material="shader: gradient; topColor: 255 0 0; bottomColor: 0 121 255;"></a-gradient-sky>
+    <a-scatterplot src="url(example.json)" x="field1" y="field2" z="field3" val="field4"></a-scatterplot>
   </a-scene>
 </body>
 ```
@@ -31,14 +34,17 @@ Install and use by directly including the [browser file](dist):
 Install via NPM:
 
 ```bash
-npm install aframe-gradient-sky
+npm install aframe
+npm install d3
+npm install aframe-scatterplot
 ```
 
 Then register and use.
 
 ```js
 require('aframe');
-require('aframe-gradient-sky');
+require('d3');
+require('aframe-scatterplot');
 ```
 
 ### Data Formatting
@@ -90,7 +96,7 @@ Example (Sea Surface Temperature 1km resolution):
 
 *How can I format my data in this way?*
 
-The easiest way to do this is to get a CSV of your dataset and use the online CSV to JSON conversion tool [convertcsv](http://www.convertcsv.com/csv-to-json.htm). If you are a programmer you can use your favorite language to do so as well. Most popular programming languages have JSON writing capabilites of some sort.
+The easiest way to do this is to get a CSV of your dataset and use the online CSV to JSON conversion tool [convertcsv](http://www.convertcsv.com/csv-to-json.htm). If you are a programmer you can use your favorite language to do so as well. Most popular programming languages have JSON writing capabilities of some sort.
 
 *How can I get a CSV export of my data?*
 
@@ -98,7 +104,7 @@ The easiest way to get a CSV export is to open your data in Excel or Google Shee
 
 *Can I only use geospacial data?*
 
-No, you can use non-geospacial data as long as it is formatted in the style shown above. It is important to note though that if two spacial dimensions share a unit of measurement (i.e. x and y dimensions are both in kelvin) you should specify this in the relationship option (detailed in options below).
+No, you can use non-geospacial data as long as it is formatted in the style shown above. It is important to note though that if two spacial dimensions share a unit of measurement (i.e. x and y dimensions are both in kelvin) you should specify this in the relationship option (detailed in API below).
 
 *How many fields can I have?*
 
@@ -110,25 +116,36 @@ We have experimented with over 5 million data points with no problems.
 
 *Do I need to normalize or scale my values?*
 
-No, the a-scatterplot component will do that for you programmatically. It is totally fine for you to leave the values at thier original readings.
+No, the a-scatterplot component will do that for you programmatically. It is totally fine for you to leave the values at their original readings.
 
 *Where can I find example data?*
 
 Example datasets can be found [here](https://github.com/zcanter/aframe-scatterplot/tree/master/example/sample-data).
 
-### Options
+### API
 
 | Property   | Example | Description | Default Value |
 | ---------- | ----------- | ------------- | ------------- |
+| src | url(data.json) | The path to the data set | none |
 | title | Sea Surface Temperature | Title of the dataset | undefined
 | x | lat | X dimension from field name | undefined |
 | y | val | Y dimension from field name | undefined |
 | z | lon | Z dimension from field name | undefined |
 | val | val | Color mapped dimension from field name | undefined |
 | colorpreset | jet | Name of the color map preset | jet |
-| fillval | -32768, 4506 | Number (or numbers) representing fill values/ignored values seperated by comma | none |
+| fillval | -32768, 4506 | Number (or numbers) representing fill values/ignored values separated by comma | none |
 | relationship | xz | Dimensions that share units of measurements | none |
 | pointSize | 3.5 | Size of the rendered data point | 1 |
+| raw | [{lat: -79, lon: 180, val: 103},...] | The raw data in a JS object array | none |
+| xfill | -45, 63 | Fill or ignored values in X dimension | none|
+| yfill | -78 | Fill or ignored values in Y dimension | none|
+| zfill | 12 | Fill or ignored values in Z dimension | none|
+| xLimit | 0.7 | Fill value or desired ignored value in X dimension | 1|
+| yLimit | 0.5 | Fill value or desired ignored value in X dimension | 1|
+| zLimit | 0.2 | Fill value or desired ignored value in X dimension | 1|
+| xFlip | true | Invert the X shape | false |
+| yFlip | true | Invert the Y shape | false |
+| zFlip | true | Invert the Z shape | false |
 
 ### Questions or Issues?
 
