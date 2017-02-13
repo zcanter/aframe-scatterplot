@@ -2,6 +2,8 @@
 
 ### Introduction
 
+A-Scatterplot is an embeddable HTML element that makes visualizations. You can add several on a page no worries.
+
 This tool allows users to create web-based VR-enabled data visualiztions by dragging and dropping JSON datasets into the browser window. It is both an end user visualzation tool and an example implementation of the [a-scatterplot](https://github.com/zcanter/aframe-scatterplot) AFrame VR component. 
 
 It is important to note that if you intend to use the VR capabilities of this tool, you need to have a browser that implements the experimental WebVR JavaScript API. Check [here](https://webvr.info/) for information on how to get a WebVR enabled browser.
@@ -15,7 +17,7 @@ Install and use by directly including the [browser file](dist):
 ```html
 <head>
   <title>My A-Frame Scene</title>
-  <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
 </head>
 
@@ -31,14 +33,14 @@ Install and use by directly including the [browser file](dist):
 Install via NPM:
 
 ```bash
-npm install aframe-gradient-sky
+npm install aframe-scatterplot
 ```
 
 Then register and use.
 
 ```js
 require('aframe');
-require('aframe-gradient-sky');
+require('aframe-scatterplot');
 ```
 
 ### Data Formatting
@@ -98,7 +100,7 @@ The easiest way to get a CSV export is to open your data in Excel or Google Shee
 
 *Can I only use geospacial data?*
 
-No, you can use non-geospacial data as long as it is formatted in the style shown above. It is important to note though that if two spacial dimensions share a unit of measurement (i.e. x and y dimensions are both in kelvin) you should specify this in the relationship option (detailed in options below).
+No, you can use non-geospacial data as long as it is formatted in the style shown above. It is important to note though that if two spacial dimensions share a unit of measurement (i.e. x and y dimensions are both in kelvin) you should specify this in the relationship option (detailed in API below).
 
 *How many fields can I have?*
 
@@ -116,7 +118,7 @@ No, the a-scatterplot component will do that for you programmatically. It is tot
 
 Example datasets can be found [here](https://github.com/zcanter/aframe-scatterplot/tree/master/example/sample-data).
 
-### Options
+### API
 
 | Property   | Example | Description | Default Value |
 | ---------- | ----------- | ------------- | ------------- |
