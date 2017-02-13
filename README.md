@@ -2,7 +2,7 @@
 
 ### Introduction
 
-An all purpose scatterplot component for the [AFrame](https://aframe.io/) WebVR Framework.
+An all purpose scatterplot data vis component for the [AFrame](https://aframe.io/) WebVR Framework.
 
 Check out the example application: https://zcanter.github.io/vr-scatterplot/
 
