@@ -2,13 +2,10 @@
 
 ### Introduction
 
-A-Scatterplot is an embeddable HTML element that makes visualizations. You can add several on a page no worries.
+An all purpose data visualization componenet for the [AFrame]() WebVR Framework.
 
-This tool allows users to create web-based VR-enabled data visualiztions by dragging and dropping JSON datasets into the browser window. It is both an end user visualzation tool and an example implementation of the [a-scatterplot](https://github.com/zcanter/aframe-scatterplot) AFrame VR component. 
+Check out the example application: 
 
-It is important to note that if you intend to use the VR capabilities of this tool, you need to have a browser that implements the experimental WebVR JavaScript API. Check [here](https://webvr.info/) for information on how to get a WebVR enabled browser.
-
-Also to use this tool you must have a browser that supports WebGL. Most modern browsers support WebGL but you can double check [here](https://get.webgl.org/).
 
 #### Browser Installation
 
@@ -23,7 +20,7 @@ Install and use by directly including the [browser file](dist):
 
 <body>
   <a-scene>
-    <a-gradient-sky material="shader: gradient; topColor: 255 0 0; bottomColor: 0 121 255;"></a-gradient-sky>
+    <a-scatterplot src="url(example.json)" x="field1" y="field2" z="field3" val="field4"></a-scatterplot>
   </a-scene>
 </body>
 ```
