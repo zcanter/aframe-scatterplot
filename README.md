@@ -18,7 +18,7 @@ Install and use by directly including the [browser file](dist):
 <head>
   <title>My A-Frame Scene</title>
   <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/zcanter/"></script>
+  <script src="https://cdn.rawgit.com/zcanter/aframe-scatterplot/master/dist/a-scatterplot.min.js"></script>
 </head>
 
 <body>
