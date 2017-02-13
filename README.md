@@ -6,6 +6,9 @@ An all purpose data visualization component for the [AFrame](https://aframe.io/)
 
 Check out the example application: 
 
+![A-Frame Gradient Sky](https://cloud.githubusercontent.com/assets/5613001/22364303/65a91ce2-e425-11e6-8086-c4401b15dcdb.png)
+
+
 #### Browser Installation
 
 Install and use by directly including the [browser file](dist):
