@@ -2,7 +2,7 @@
 
 ### Introduction
 
-An all purpose data visualization component for the [AFrame](https://aframe.io/) WebVR Framework.
+An all purpose scatterplot component for the [AFrame](https://aframe.io/) WebVR Framework.
 
 Check out the example application: http://
 
