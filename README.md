@@ -4,7 +4,7 @@
 
 An all-purpose data visualization component for the [AFrame](https://aframe.io/) WebVR Framework.
 
-Check out the example drag and drop data vis application: https://zcanter.github.io/vr-scatterplot/
+Check out the example drag and drop application: https://zcanter.github.io/vr-scatterplot/
 
 ![A-Frame Scatterplot](https://cloud.githubusercontent.com/assets/5613001/22870157/da185304-f159-11e6-94ba-7e9a33f9dd02.png)
 
