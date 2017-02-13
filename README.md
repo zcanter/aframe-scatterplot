@@ -2,7 +2,7 @@
 
 ### Introduction
 
-An all purpose data visualization componenet for the [AFrame](https://aframe.io/) WebVR Framework.
+An all purpose data visualization component for the [AFrame](https://aframe.io/) WebVR Framework.
 
 Check out the example application: 
 
@@ -88,7 +88,7 @@ Example (Sea Surface Temperature 1km resolution):
 
 *How can I format my data in this way?*
 
-The easiest way to do this is to get a CSV of your dataset and use the online CSV to JSON conversion tool [convertcsv](http://www.convertcsv.com/csv-to-json.htm). If you are a programmer you can use your favorite language to do so as well. Most popular programming languages have JSON writing capabilites of some sort.
+The easiest way to do this is to get a CSV of your dataset and use the online CSV to JSON conversion tool [convertcsv](http://www.convertcsv.com/csv-to-json.htm). If you are a programmer you can use your favorite language to do so as well. Most popular programming languages have JSON writing capabilities of some sort.
 
 *How can I get a CSV export of my data?*
 
@@ -108,7 +108,7 @@ We have experimented with over 5 million data points with no problems.
 
 *Do I need to normalize or scale my values?*
 
-No, the a-scatterplot component will do that for you programmatically. It is totally fine for you to leave the values at thier original readings.
+No, the a-scatterplot component will do that for you programmatically. It is totally fine for you to leave the values at their original readings.
 
 *Where can I find example data?*
 
@@ -125,7 +125,7 @@ Example datasets can be found [here](https://github.com/zcanter/aframe-scatterpl
 | z | lon | Z dimension from field name | undefined |
 | val | val | Color mapped dimension from field name | undefined |
 | colorpreset | jet | Name of the color map preset | jet |
-| fillval | -32768, 4506 | Number (or numbers) representing fill values/ignored values seperated by comma | none |
+| fillval | -32768, 4506 | Number (or numbers) representing fill values/ignored values separated by comma | none |
 | relationship | xz | Dimensions that share units of measurements | none |
 | pointSize | 3.5 | Size of the rendered data point | 1 |
 | raw | [{lat: -79, lon: 180, val: 103},...] | The raw data in a JS object array | none |
