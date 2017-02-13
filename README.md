@@ -4,7 +4,7 @@
 
 An all purpose scatterplot component for the [AFrame](https://aframe.io/) WebVR Framework.
 
-Check out the example application: http://
+Check out the example application: https://zcanter.github.io/vr-scatterplot/
 
 ![A-Frame Scatterplot](https://cloud.githubusercontent.com/assets/5613001/22870157/da185304-f159-11e6-94ba-7e9a33f9dd02.png)
 
