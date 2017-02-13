@@ -6,7 +6,6 @@ An all purpose data visualization componenet for the [AFrame]() WebVR Framework.
 
 Check out the example application: 
 
-
 #### Browser Installation
 
 Install and use by directly including the [browser file](dist):
@@ -15,7 +14,7 @@ Install and use by directly including the [browser file](dist):
 <head>
   <title>My A-Frame Scene</title>
   <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+  <script src="https://cdn.rawgit.com/zcanter/"></script>
 </head>
 
 <body>
@@ -119,6 +118,7 @@ Example datasets can be found [here](https://github.com/zcanter/aframe-scatterpl
 
 | Property   | Example | Description | Default Value |
 | ---------- | ----------- | ------------- | ------------- |
+| src | url(data.json) | The path to the data set | none |
 | title | Sea Surface Temperature | Title of the dataset | undefined
 | x | lat | X dimension from field name | undefined |
 | y | val | Y dimension from field name | undefined |
@@ -128,6 +128,16 @@ Example datasets can be found [here](https://github.com/zcanter/aframe-scatterpl
 | fillval | -32768, 4506 | Number (or numbers) representing fill values/ignored values seperated by comma | none |
 | relationship | xz | Dimensions that share units of measurements | none |
 | pointSize | 3.5 | Size of the rendered data point | 1 |
+| raw | [{lat: -79, lon: 180, val: 103},...] | The raw data in a JS object array | none |
+| xfill | -45, 63 | Fill or ignored values in X dimension | none|
+| yfill | -78 | Fill or ignored values in Y dimension | none|
+| zfill | 12 | Fill or ignored values in Z dimension | none|
+| xLimit | 0.7 | Fill value or desired ignored value in X dimension | 1|
+| yLimit | 0.5 | Fill value or desired ignored value in X dimension | 1|
+| zLimit | 0.2 | Fill value or desired ignored value in X dimension | 1|
+| xFlip | true | Invert the X shape | false |
+| yFlip | true | Invert the Y shape | false |
+| zFlip | true | Invert the Z shape | false |
 
 ### Questions or Issues?
 
