@@ -39,10 +39,6 @@ AFRAME.registerComponent('dataplot', {
 			default: [],
 	    	type: 'array'
 	    },
-	    cfill: { 
-			default: [],
-	    	type: 'array'
-	    },
 	    xlimit: {
 	    	type: 'number',
 	    	default: 1
@@ -90,6 +86,7 @@ AFRAME.registerComponent('dataplot', {
     		if (data.raw !== "none") {
 				renderGeometryFromRaw(el, data)		
     		} else if (data.src !== "none") {
+				// TODO: This logic is not quite right. If the user actually specifies anything, even the default option, we should set this flag to True. But I dont know how to test whether the value was filled in using the schema default (i.e. the user specified it) or whether the value was provided by the user but coincidientally is the same as the schema default.
 				data.userSpecifiedPointsprite = (data.pointsprite != this.__proto__.schema.pointsprite.default);
     			renderGeometryAndKeyFromPath(el, data)			
     		} else {
@@ -224,9 +221,8 @@ function renderGeometryAndKeyFromPath(el, data) {
 				positions[ i3 + 1 ] = stats.scaleY(json[i][data.y]);
 				positions[ i3 + 2 ] = stats.scaleZ(json[i][data.z]);
 		
-				//color.setHSL( i / json.length, 0.5, 0.5 );
 				var c = stats.colorScale(json[i][data.val]); // Returns string like 'rgb(10,0,0)'
-				//console.log(json[i][data.val] + " became " + c);
+				
 				if (data.pointcolor) 
 					var color = new THREE.Color(data.pointcolor)
 				else
@@ -540,7 +536,7 @@ function makeLine(el, v, i, objName) {
 }
 
 function renderGeometryFromRaw(el, data) {
-	console.log('renderGeometryFromRaw');
+		/* NOTE! This does not support the new per-point sizes, ie. does not use BufferGeometry */
 	var json = JSON.parse(data.raw)
 	var colorPreset = "colors." + data.colorpreset
 	var geometry = new THREE.Geometry()
@@ -606,45 +602,6 @@ function renderGeometryFromRaw(el, data) {
 }
 
 
-// Create particle group and emitter
-function initParticles(el) {
-	var texloader = new THREE.TextureLoader();
-	
-	particleGroup = new SPE.Group({
-		texture: {
-			value: THREE.ImageUtils.loadTexture('./dist/img/smokeparticle.png')
-		}
-	});
-		
-	emitter = new SPE.Emitter({
-		maxAge: {
-			value: 2
-		},
-		position: {
-			value: new THREE.Vector3(0, 0, -50),
-			spread: new THREE.Vector3( 0, 0, 0 )
-		},
-		acceleration: {
-			value: new THREE.Vector3(0, -10, 0),
-			spread: new THREE.Vector3( 10, 0, 10 )
-		},
-		velocity: {
-			value: new THREE.Vector3(0, 25, 0),
-			spread: new THREE.Vector3(10, 7.5, 10)
-		},
-		color: {
-			value: [ new THREE.Color('white'), new THREE.Color('red') ]
-		},
-		size: {
-			value: 1
-		},
-		particleCount: 2000
-	});
-	particleGroup.addEmitter( emitter );
-	el.setObject3D('particles', particleGroup.mesh)
-
-	//scene.add( particleGroup.mesh );
-}
 		
 		
 function getDataStats(json, data, colorPreset) {

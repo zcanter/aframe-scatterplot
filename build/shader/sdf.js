@@ -25,13 +25,10 @@ module.exports = function createSDFShader (opt) {
       'attribute vec4 position;',
       'uniform mat4 projectionMatrix;',
       'uniform mat4 modelViewMatrix;',
-	  'uniform float ps;',
       'varying vec2 vUv;',
       'void main() {',
       'vUv = uv;',
       'gl_Position = projectionMatrix * modelViewMatrix * position;',
-	  'float ps2 = 100.0;',
-      'gl_PointSize = ps2;',
       '}'
     ].join('\n'),
     fragmentShader: [
