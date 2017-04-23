@@ -66,6 +66,7 @@ AFRAME.registerComponent('dataplot', {
 		ylabel: { type: 'string', default:"" },
 		zlabel: { type: 'string', default:"" },
 		nochrome: { type: 'boolean', default:false },
+		showcolorbar: { type: 'boolean', default:true },
 		cage: { type: 'boolean', default:false },
 		numdecimalplaces: { type: 'number', default:4 },
 	    pointsize: { 
@@ -322,7 +323,7 @@ function makeAxisAndKey(el, data, stats) {
 	})
 
 	var colorPreset = "colors." + data.colorpreset
-	createColorKey(el, stats, colorPreset, data.numdecimalplaces)
+	if (data.showcolorbar) createColorKey(el, stats, colorPreset, data.numdecimalplaces)
 	createAxisLabels(el, data, stats)
 }
 
@@ -739,6 +740,7 @@ AFRAME.registerPrimitive('a-scatterplot', {
 		numdecimalplaces: 'dataplot.numdecimalplaces',
 		nochrome: 'dataplot.nochrome',
 		cage: 'dataplot.cage',
+		showcolorbar: 'dataplot.showcolorbar',
 		pointsprite: 'dataplot.pointsprite',
 		pointsize: 'dataplot.pointsize'
 	}
