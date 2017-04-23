@@ -422,7 +422,7 @@ function addText(el, pos, objName, textString, align, rot) {
         map: texture,
         side: THREE.DoubleSide,
         transparent: true,
-        color: '#000',
+        color: el.getAttribute("textColor")? el.getAttribute("textColor") : '#000', /* Default is black */
         opacity: 1.0
       }))
 
@@ -522,8 +522,12 @@ function getPointInBetweenByPerc(pointA, pointB, percentage) {
 }
 
 function makeLine(el, v, i, objName) {
+	
+	//var c = el.getAttribute("textColor")?  parseInt(el.getAttribute("textColor").replace(/^#/,''),16) : 0x000000, /* Default is black */
+	var c = el.getAttribute("textColor")?  el.getAttribute("textColor") : 0x000; /* Default is black */
+
 	var material = new THREE.LineBasicMaterial({
-		color: 0x000000,
+		color: c,
 		opacity: 0.45, 
 		transparent: true, 
 		depthWrite: false

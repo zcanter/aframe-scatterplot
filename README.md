@@ -175,6 +175,7 @@ If you want to make the vertical hieght shorter than the X/Y size, set
 | numdecimalplaces | 1 | Number of decimal points to show in axis numbering and color bar | 4 |
 | showcolorbar | "false" | Show the color bar? | "true"|
 | nochrome | "true" | Turn off rendering of axes, tics, title, and color bar? Useful if you want to create a second scatterplot directly on top of another one. | "false" |
+| textColor | "#F00" | Color for text | "#000" |
 | cage | "true" | Draw full frame around plot | "false" |
 | pointsprite | "dist/img/ball.png" | URL of the image to use to render each point.  If you do not specify point sizes, by default this component will use the THREE.PointMaterial to render the points as pixels, not sprites. If you specify point sizes or specify this sprite | "dist/img/ball.png" |
 
