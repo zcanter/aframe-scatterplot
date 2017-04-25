@@ -125,7 +125,7 @@ Example datasets can be found [here](https://github.com/zcanter/aframe-scatterpl
 *I'm confused mapping my X/Y/Z axis data to Aframe's X/Y/Z space*
 
 AFrame's coordinate system starts X,Y at the lower lefthand corner, and Z values increasing toward the camera. The scatterplot component uses this axis system. 
-Further complicating this is the fact that the title and color bar are oriented relative to the Z axis in AFrame space, not to the X axis as you normally expect in a scatterplot. This is because the plot was initially designed for use with geospatial data in which x and y values are usually latitude and longitude.
+Further complicating this is the fact that the title and color bar are oriented relative to the Z axis in AFrame space, not to the X axis as you normally expect in a scatterplot. This is because the plot was initially designed for use with geospatial data in which X and Y values are usually latitude and longitude.
 
 Therefore, a nice initial setting for the axes mappings is:
 X axis (left/right on screen): Your Y axis values
@@ -140,8 +140,6 @@ If your X and Y values have the scame scale, add
    relationship="zx"
 If you want to make the vertical hieght shorter than the X/Y size, set 
    scale="1 0.5 1
-
-	   
 
 ### API
 
@@ -184,3 +182,7 @@ If you want to make the vertical hieght shorter than the X/Y size, set
 ### Questions or Issues?
 
 Feel free to open a GitHub Issue or to contact me directly at zrcanter [-at-] gmail
+
+### Special Thanks
+
+Thank you to the NASA-JPL Instrument Data Systems VR working group for helping in the creation of this tool. Also thanks to Dan Moran for his additions to the README.
