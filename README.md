@@ -122,10 +122,10 @@ No, the a-scatterplot component will do that for you programmatically. It is tot
 
 Example datasets can be found [here](https://github.com/zcanter/aframe-scatterplot/tree/master/example/sample-data).
 
-* I'm confused mapping my X/Y/Z axis data to Aframe's X/Y/Z space*
+*I'm confused mapping my X/Y/Z axis data to Aframe's X/Y/Z space*
 
 AFrame's coordinate system starts X,Y at the lower lefthand corner, and Z values increasing toward the camera. The scatterplot component uses this axis system. 
-Further complicating this is the fact that the title and color bar are oriented relative to the Z axis in AFrame space, not to the X axis as you normally expect in a scatterplot. 
+Further complicating this is the fact that the title and color bar are oriented relative to the Z axis in AFrame space, not to the X axis as you normally expect in a scatterplot. This is because the plot was initially designed for use with geospatial data in which x and y values are usually latitude and longitude.
 
 Therefore, a nice initial setting for the axes mappings is:
 X axis (left/right on screen): Your Y axis values
