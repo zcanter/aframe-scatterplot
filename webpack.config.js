@@ -10,6 +10,11 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     filename: 'a-scatterplot.min.js',
   },
+  module: {
+      loaders: [
+            { test: /\.(jpe?g|gif|png|svg|woff|ttf|wav|mp3)$/, loader: "file-loader" }
+        ]
+  },  
   plugins:[
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
