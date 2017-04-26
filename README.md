@@ -128,17 +128,27 @@ AFrame's coordinate system starts X,Y at the lower lefthand corner, and Z values
 Further complicating this is the fact that the title and color bar are oriented relative to the Z axis in AFrame space, not to the X axis as you normally expect in a scatterplot. This is because the plot was initially designed for use with geospatial data in which X and Y values are usually latitude and longitude.
 
 Therefore, a nice initial setting for the axes mappings is:
+```
 X axis (left/right on screen): Your Y axis values
 Z axis (toward camera): your X-axis values 
 Y axis (up/down on screen): Your Z values
+```
 So the component attributes will be like 
+
    x="y"  y="z" z="x" val="z" xlabel="My Y Axis" ylabel="My Z axis" zlabel="My X axis"
+   
 and add
+
    rotation="0 90 0"
+   
 to pivot the whole thing so that the title and color bar are placed correctly.
+
 If your X and Y values have the scame scale, add 
+
    relationship="zx"
+   
 If you want to make the vertical hieght shorter than the X/Y size, set 
+
    scale="1 0.5 1
 
 ### API
@@ -167,15 +177,15 @@ If you want to make the vertical hieght shorter than the X/Y size, set
 | yFlip | true | Invert the Y shape | false |
 | zFlip | true | Invert the Z shape | false |
 | pointcolor | "rgb(255,0,0)" | Color all the points with the same color. If specified, colorpreset is ignored. This should be a string that is parsable by the THREE.Color() function | [] |
-| xlabel | "aframe X / my Y" | label along the X axis (see discussion about Axes) | "" |
-| ylabel | "aframe Y / my Z" | label along the Y axis (see discussion about Axes) | "" |
-| zlabel | "aframe Z / my X" | label along the Z axis (see discussion about Axes) | "" |
+| xlabel | "aframe X / my Y" | label along the X axis (see discussion about Axes) | none |
+| ylabel | "aframe Y / my Z" | label along the Y axis (see discussion about Axes) | none |
+| zlabel | "aframe Z / my X" | label along the Z axis (see discussion about Axes) | none |
 | numdecimalplaces | 1 | Number of decimal points to show in axis numbering and color bar | 4 |
-| showcolorbar | "false" | Show the color bar? | "true"|
-| nochrome | "true" | Turn off rendering of axes, tics, title, and color bar? Useful if you want to create a second scatterplot directly on top of another one. | "false" |
-| textColor | "#F00" | Color for text | "#000" |
-| cage | "true" | Draw full frame around plot | "false" |
-| pointsprite | "dist/img/ball.png" | URL of the image to use to render each point.  If you do not specify point sizes, by default this component will use the THREE.PointMaterial to render the points as pixels, not sprites. If you specify point sizes or specify this sprite | "dist/img/ball.png" |
+| showcolorbar | false | Show the color bar? | true|
+| nochrome | true | Turn off rendering of axes, tics, title, and color bar? Useful if you want to create a second scatterplot directly on top of another one. | false |
+| textColor | #F00 | Color for text | #000 |
+| cage | true | Draw full frame around plot | false |
+| pointsprite | dist/img/ball.png | URL of the image to use to render each point.  If you do not specify point sizes, by default this component will use the THREE.PointMaterial to render the points as pixels, not sprites. If you specify point sizes or specify this sprite | dist/img/ball.png |
 
    
    
