@@ -56,7 +56,7 @@ AFRAME.registerComponent('dataplot', {
     		type: 'string'
 	    },
 	    pointsprite: {
-	    	default: "dist/img/disc.png",
+	    	default: null, /* Default is actually "img/disc.png", but this is set in init() below */
     		type: 'string'
 	    },
 	    xflip: { type: 'boolean' },
@@ -70,7 +70,7 @@ AFRAME.registerComponent('dataplot', {
 		cage: { type: 'boolean', default:false },
 		numdecimalplaces: { type: 'number', default:4 },
 		showFloor: {type:'boolean', default:false },
-		floorMaterialParams: {type: 'string', default:'color: #fff; opacity:0.75; transparent:true; '},
+		floorMaterialParams: {type: 'string', default:'color: #fff; opacity:0.5; transparent:true; '},
 		pointsize: { 
 	    	type: 'number',
 	    	default: 1 
@@ -78,8 +78,8 @@ AFRAME.registerComponent('dataplot', {
   	},
 
   	init: function() {
-  		var data = this.data
-		
+  		var data = this.data;
+  		if (!data.pointsprite) data.pointsprite="img/disc.png";		
   	},
 
 	update: function (oldData) {
@@ -197,7 +197,7 @@ function renderGeometryAndKeyFromPath(el, data) {
 				
 			var uniforms = {
 				color:     { value: new THREE.Color( 0xffffff ) },
-				texture:   { value: new THREE.TextureLoader().load( data.pointsprite ) }
+				texture:   { value: new THREE.TextureLoader().load( data.pointsprite, function(){}, function(){}, function(){console.warn('Failed to load point sprite' + data.pointsprite)} ) }
 			};
 
 			material = new THREE.ShaderMaterial( {
