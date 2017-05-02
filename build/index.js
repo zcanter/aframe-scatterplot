@@ -69,7 +69,9 @@ AFRAME.registerComponent('dataplot', {
 		showcolorbar: { type: 'boolean', default:true },
 		cage: { type: 'boolean', default:false },
 		numdecimalplaces: { type: 'number', default:4 },
-	    pointsize: { 
+		showFloor: {type:'boolean', default:false },
+		floorMaterialParams: {type: 'string', default:'color: #fff; opacity:0.75; transparent:true; '},
+		pointsize: { 
 	    	type: 'number',
 	    	default: 1 
 	    }
@@ -77,6 +79,7 @@ AFRAME.registerComponent('dataplot', {
 
   	init: function() {
   		var data = this.data
+		
   	},
 
 	update: function (oldData) {
@@ -325,6 +328,18 @@ function makeAxisAndKey(el, data, stats) {
 	var colorPreset = "colors." + data.colorpreset
 	if (data.showcolorbar) createColorKey(el, stats, colorPreset, data.numdecimalplaces)
 	createAxisLabels(el, data, stats)
+
+	if (data.showFloor) {
+		var floorNode = document.createElement("a-entity");
+		floorNode.setAttribute('geometry',{"primitive":"plane", "width":stats.width, "height":stats.depth});
+		floorNode.setAttribute('position',[stats.width/2, 0, stats.depth/2].join(" "));
+		floorNode.setAttribute('rotation','-90 0 0');
+		floorNode.setAttribute('material',AFRAME.utils.styleParser.parse(data.floorMaterialParams));
+		el.appendChild(floorNode);
+	}
+	
+
+
 }
 
 
@@ -540,6 +555,7 @@ function makeLine(el, v, i, objName) {
 	el.setObject3D(objName + i, line)
 }
 
+
 function renderGeometryFromRaw(el, data) {
 		/* NOTE! This does not support the new per-point sizes, ie. does not use BufferGeometry */
 	var json = JSON.parse(data.raw)
@@ -743,6 +759,8 @@ AFRAME.registerPrimitive('a-scatterplot', {
 		zlabel: 'dataplot.zlabel',
 		numdecimalplaces: 'dataplot.numdecimalplaces',
 		nochrome: 'dataplot.nochrome',
+		showfloor: 'dataplot.showFloor',
+		floormaterialparams: 'dataplot.floorMaterialParams',
 		cage: 'dataplot.cage',
 		showcolorbar: 'dataplot.showcolorbar',
 		pointsprite: 'dataplot.pointsprite',
