@@ -202,4 +202,4 @@ Feel free to open a GitHub Issue or to contact me directly at zrcanter [-at-] gm
 
 ### Special Thanks
 
-Thank you to the NASA-JPL Instrument Data Systems VR working group for helping in the creation of this tool. Also thanks to Dan Moran (@morandd) for his additions to this project.
+Thank you to the NASA-JPL Instrument Data Systems VR working group for helping in the creation of this tool. Also thanks to Dan Moran (@morandd) for his awesome additions to this project!
