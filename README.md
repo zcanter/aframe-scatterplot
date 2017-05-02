@@ -57,7 +57,7 @@ Datasets should be formatted as follows:
 ```javascript
 [
  {
-   // Data Point 
+   // Data Point
    "Field1": 13.90738679789567,
    "Field2": 11.77935227940546,
    "Field3": 12.02052097080796,
@@ -65,7 +65,7 @@ Datasets should be formatted as follows:
    "Field5": 14.13415151546462,
  },
  {
-   // Data Point 
+   // Data Point
    "Field1": 12.29829187876160,
    "Field2": 10.12398967761787,
    "Field3": 16.81298749861520,
@@ -104,9 +104,9 @@ The easiest way to do this is to get a CSV of your dataset and use the online CS
 
 The easiest way to get a CSV export is to open your data in Excel or Google Sheets and export as it a CSV file. You can also do this programmatically in your favorite language.
 
-*Can I only use geospacial data?*
+*Can I only use geospatial data?*
 
-No, you can use non-geospacial data as long as it is formatted in the style shown above. It is important to note though that if two spacial dimensions share a unit of measurement (i.e. x and y dimensions are both in kelvin) you should specify this in the relationship option (detailed in API below).
+No, you can use non-geospatial data as long as it is formatted in the style shown above. It is important to note though that if two spacial dimensions share a unit of measurement (i.e. x and y dimensions are both in kelvin) you should specify this in the relationship option (detailed in API below).
 
 *How many fields can I have?*
 
@@ -126,30 +126,30 @@ Example datasets can be found [here](https://github.com/zcanter/aframe-scatterpl
 
 *I'm confused mapping my X/Y/Z axis data to Aframe's X/Y/Z space*
 
-AFrame's coordinate system starts X,Y at the lower lefthand corner, and Z values increasing toward the camera. The scatterplot component uses this axis system. 
+AFrame's coordinate system starts X,Y at the lower lefthand corner, and Z values increasing toward the camera. The scatterplot component uses this axis system.
 Further complicating this is the fact that the title and color bar are oriented relative to the Z axis in AFrame space, not to the X axis as you normally expect in a scatterplot. This is because the plot was initially designed for use with geospatial data in which X and Y values are usually latitude and longitude.
 
 Therefore, a nice initial setting for the axes mappings is:
 ```
 X axis (left/right on screen): Your Y axis values
-Z axis (toward camera): your X-axis values 
+Z axis (toward camera): your X-axis values
 Y axis (up/down on screen): Your Z values
 ```
-So the component attributes will be like 
+So the component attributes will be like
 
    x="y"  y="z" z="x" val="z" xlabel="My Y Axis" ylabel="My Z axis" zlabel="My X axis"
-   
+
 and add
 
    rotation="0 90 0"
-   
+
 to pivot the whole thing so that the title and color bar are placed correctly.
 
-If your X and Y values have the scame scale, add 
+If your X and Y values have the scame scale, add
 
    relationship="zx"
-   
-If you want to make the vertical hieght shorter than the X/Y size, set 
+
+If you want to make the vertical hieght shorter than the X/Y size, set
 
    scale="1 0.5 1
 
@@ -164,7 +164,7 @@ Setting a nice location for an orbit-controls lookat target is a bit tricky, but
 | x | lat | X dimension from field name | undefined |
 | y | val | Y dimension from field name | undefined |
 | z | lon | Z dimension from field name | undefined |
-| s | size | Point size from field name | undefined | 
+| s | size | Point size from field name | undefined |
 | val | val | Color mapped dimension from field name | undefined |
 | colorpreset | jet | Name of the color map preset | jet |
 | fillval | -32768, 4506 | Number (or numbers) representing fill values/ignored values separated by comma | none |
@@ -194,12 +194,12 @@ Setting a nice location for an orbit-controls lookat target is a bit tricky, but
 | floorMaterialParams | | Parameters passed to the foor material | "color: #fff; opacity:0.5; transparent:true;" |
 
 
-   
-   
+
+
 ### Questions or Issues?
 
 Feel free to open a GitHub Issue or to contact me directly at zrcanter [-at-] gmail
 
 ### Special Thanks
 
-Thank you to the NASA-JPL Instrument Data Systems VR working group for helping in the creation of this tool. Also thanks to Dan Moran (@morandd) for his awesome additions to this project!
+Thank you to the NASA-JPL Instrument Data Systems VR working group for helping in the creation of this tool. Also thanks to [Dan Moran](https://github.com/morandd) for his awesome additions to this project!

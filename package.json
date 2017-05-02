@@ -1,6 +1,6 @@
 {
   "name": "aframe-scatterplot",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "AFrame JSON data scatterplot component",
   "main": "./dist/a-scatterplot.min.js",
   "directories": {
