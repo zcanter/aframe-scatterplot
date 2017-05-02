@@ -6,6 +6,8 @@ An all-purpose data visualization component for the [AFrame](https://aframe.io/)
 
 Check out the example drag and drop application: https://zcanter.github.io/vr-scatterplot/
 
+There is also a full example, with orbit-cam, in ./examples/example2.html
+
 ![A-Frame Scatterplot](https://cloud.githubusercontent.com/assets/5613001/22870157/da185304-f159-11e6-94ba-7e9a33f9dd02.png)
 
 #### Browser Installation
@@ -17,7 +19,7 @@ You must also include a link the [D3](https://d3js.org/) JavaScript data visuali
 ```html
 <head>
   <title>My A-Frame Scene</title>
-  <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.4.1/d3.min.js"></script>
   <script src="https://cdn.rawgit.com/zcanter/aframe-scatterplot/master/dist/a-scatterplot.min.js"></script>
 </head>
@@ -151,6 +153,8 @@ If you want to make the vertical hieght shorter than the X/Y size, set
 
    scale="1 0.5 1
 
+Setting a nice location for an orbit-controls lookat target is a bit tricky, but see example2.html for a working example.
+
 ### API
 
 | Property   | Example | Description | Default Value |
@@ -166,6 +170,8 @@ If you want to make the vertical hieght shorter than the X/Y size, set
 | fillval | -32768, 4506 | Number (or numbers) representing fill values/ignored values separated by comma | none |
 | relationship | xz | Dimensions that share units of measurements | none |
 | pointSize | 3.5 | Size of the rendered data point | 1 |
+| pointcolor | "rgb(255,0,0)" | Color all the points with the same color. If specified, colorpreset is ignored. This should be a string that is parsable by the THREE.Color() function | [] |
+| pointsprite | dist/img/ball.png | URL of the image to use to render each point.  If you do not specify point sizes, by default this component will use the THREE.PointMaterial to render the points as pixels, not sprites. If you specify point sizes or specify this sprite | dist/img/ball.png |
 | raw | [{lat: -79, lon: 180, val: 103},...] | The raw data in a JS object array | none |
 | xfill | -45, 63 | Fill or ignored values in X dimension | none|
 | yfill | -78 | Fill or ignored values in Y dimension | none|
@@ -176,7 +182,6 @@ If you want to make the vertical hieght shorter than the X/Y size, set
 | xFlip | true | Invert the X shape | false |
 | yFlip | true | Invert the Y shape | false |
 | zFlip | true | Invert the Z shape | false |
-| pointcolor | "rgb(255,0,0)" | Color all the points with the same color. If specified, colorpreset is ignored. This should be a string that is parsable by the THREE.Color() function | [] |
 | xlabel | "aframe X / my Y" | label along the X axis (see discussion about Axes) | none |
 | ylabel | "aframe Y / my Z" | label along the Y axis (see discussion about Axes) | none |
 | zlabel | "aframe Z / my X" | label along the Z axis (see discussion about Axes) | none |
@@ -184,8 +189,10 @@ If you want to make the vertical hieght shorter than the X/Y size, set
 | showcolorbar | false | Show the color bar? | true|
 | nochrome | true | Turn off rendering of axes, tics, title, and color bar? Useful if you want to create a second scatterplot directly on top of another one. | false |
 | textColor | #F00 | Color for text | #000 |
-| cage | true | Draw full frame around plot | false |
-| pointsprite | dist/img/ball.png | URL of the image to use to render each point.  If you do not specify point sizes, by default this component will use the THREE.PointMaterial to render the points as pixels, not sprites. If you specify point sizes or specify this sprite | dist/img/ball.png |
+| ycage | true | Draw vertical frame around plot | false |
+| showFloor | true | Draw a floor on the graph | false |
+| floorMaterialParams | | Parameters passed to the foor material | "color: #fff; opacity:0.5; transparent:true;" |
+
 
    
    
