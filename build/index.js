@@ -332,7 +332,8 @@ function makeAxisAndKey(el, data, stats) {
 	if (data.showFloor) {
 		var floorNode = document.createElement("a-entity");
 		floorNode.setAttribute('geometry',{"primitive":"plane", "width":stats.width, "height":stats.depth});
-		floorNode.setAttribute('position',[stats.width/2, 0, stats.depth/2].join(" "));
+		// Small shift down the Y axis so that in case the floor is not transparent (to save GPU) it will not interfere with point sprites.
+		floorNode.setAttribute('position',[stats.width/2, -0.01, stats.depth/2].join(" "));
 		floorNode.setAttribute('rotation','-90 0 0');
 		floorNode.setAttribute('material',AFRAME.utils.styleParser.parse(data.floorMaterialParams));
 		el.appendChild(floorNode);
