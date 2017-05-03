@@ -188,6 +188,8 @@ Setting a nice location for an orbit-controls lookat target is a bit tricky, but
 | numdecimalplaces | 1 | Number of decimal points to show in axis numbering and color bar | 4 |
 | showcolorbar | false | Show the color bar? | true|
 | nochrome | true | Turn off rendering of axes, tics, title, and color bar? Useful if you want to create a second scatterplot directly on top of another one. | false |
+| showTicks | false | Show tick marks and labels? | true |
+| showTickLabels | false | Show tick mark labels? | true |
 | textColor | #F00 | Color for text | #000 |
 | ycage | true | Draw vertical frame around plot | false |
 | showFloor | true | Draw a floor on the graph | false |
