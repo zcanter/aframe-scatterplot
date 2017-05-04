@@ -1,0 +1,191 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<title>Example 2 for a-scatterplot</title>
+
+	<script src="//aframe.io/releases/0.5.0/aframe.min.js"></script> 
+
+	<!-- orbit-controls -->
+	<script src="//cdn.rawgit.com/tizzle/aframe-orbit-controls-component/master/dist/aframe-orbit-controls-component.min.js"></script>
+	<!-- wasd-controls -->
+	<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.7.0/dist/aframe-extras.min.js"></script>
+
+
+	<!-- d3 is required by a-scatterplot -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.4.1/d3.min.js"></script> 
+
+	<!-- Hosted copy of a-scatterplot -->
+	<script src="//cdn.rawgit.com/zcanter/aframe-scatterplot/master/dist/a-scatterplot.min.js"></script> 
+
+	<!-- Local, development copy of a-scatterplot -->
+	<!--
+	<script src="../dist/a-scatterplot.min.js"></script> 
+	-->
+
+
+	<style>
+		@import url(http://fonts.googleapis.com/css?family=Raleway);
+		#loading {
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			position: fixed;
+			display: block;
+			opacity: 1;
+			background-color:#000;
+			z-index: 99;
+			text-align: center;
+		}
+		#loading h1 {
+			margin:auto;
+			height:130px;
+			border-top:1px solid #fafafa;
+			padding-top:30px;
+			border-bottom:1px solid #fafafa;
+			top:0;
+			bottom:0;
+			left:0;
+			right:0;
+			background-color:#ddd;
+			color:#555;
+			font-family: 'Raleway', 'Arial Narrow', Arial, Helvetica;
+			font-size: 37px;
+			letter-spacing:6.7px;
+			position:absolute;
+		}
+
+		@media (min-width: 500px) {
+			#loading h1 {
+				font-size: 67px; /* Use cooler font on screens >500px wide */
+			}
+		}
+	</style>
+
+</head>
+ 
+<body style="background-color:#000">
+<a-scene>
+
+
+
+	<a-assets>
+		<img id="grid" src="img/grid.png" style="display: none">
+	</a-assets>
+
+	<a-sky color="rgb(155,155,155)"></a-sky>
+
+	<!-- Holodeck-style skybox -->
+	<a-entity
+		geometry="primitive: box; depth: 250; height: 150; width: 250"
+		material="metalness: 0; src: #grid; side: double; repeat: 25 25; roughness: 1"
+		position="0 0 0">
+	</a-entity>
+	
+
+	<a-entity rotation="0 90 0"><!-- rotate these three so that the Z axis, which the a-scatterplot uses for data height, points toward the a-frame sky -->
+		 
+		<a-scatterplot 
+			src="url(sample-data/test_hdc.cba.json)"
+			title="Cities: Scope 1 vs Scope 3 Emissions" 
+			x="y"  y="z" z="x" s="s" val="z" 
+			valfill="-32768, 4506" relationship="xz"
+			xlabel="ax  City GDP" ylabel="ay Scope 1/3 Emissions" zlabel="az City Population"
+			numdecimalplaces="0"
+			ycage="true"
+			showFloor="true" floorMaterialParams="color: #fff; opacity:0.1; transparent:true; " 
+			showcolorbar="false"
+			colorpreset="hot" textColor="#EEE"
+			pointcolor="rgb(6,204,240)"
+			pointsize="0.25" 
+			pointsprite="img/disc.png"
+			scale="6 2 6" position="0 0 0" rotation="0 0 0"></a-scatterplot>
+
+		<!-- a second scatterplot directly on top, so we can show two different data sets -->
+		<a-scatterplot
+			src="sample-data/test_hdc.pba.json"
+			title="Footprint"
+			x="y"  y="z" z="x" s="s" val="z"
+			valfill="-32768, 4506"
+			relationship="xz"
+			numdecimalplaces="0"
+			nochrome="true"
+			colorpreset="hot"
+			pointcolor="rgb(127,22,177)"
+			pointsize="0.25"
+			scale="6 2 6" position="0 0 0" rotation="0 0 0 "
+			></a-scatterplot>
+
+		<!-- Target for orbit camera. You can also use the scatterplot, but the scatterplot is drawn with the lower-left corner at its (0,0,0) position, not centered, so the oribt will orbit around the origin not the middle of the graph. We have to play with the position value on this target a bit to get a nice lookAt target for the orbit cam. Note that this cannot be a sub-entity of the main a-scatterplot entity, since that messes up the positioning-->
+		 <a-entity id="target" geometry="primitive: box" scale="0.1 0.1 0.1" position="3 0 2" material="color: #cc0000; visible:false"></a-entity>
+
+	</a-entity->
+	
+	
+	<!-- Set up two cameras, and switch to the look-controls camera when we go into VR mode. I tried adding and removing the orbit-controls but it doesn't properly implement the update() life cycle event, or at least didnt as of May 5 2017. -->
+		<a-entity
+            camera
+            id="camera_orbit"
+            position="0 2 6"
+			active="true"
+			orbit-controls="
+                autoRotate: false;
+                target: #target;
+                enableDamping: true;
+                dampingFactor: 0.125;
+                rotateSpeed:0.15;
+				zoomSpeed:0.5;
+				maxPolarAngle:1.85;
+                minDistance:1;
+                maxDistance:10;">
+		</a-entity>
+				
+		<a-entity
+			camera
+			id="camera_look"
+			active="false"
+			position="0 2 6"
+			look-controls
+			wasd-controls="fly:true" 
+			mouse-cursor="">
+		</a-entity>
+
+</a-scene>
+
+<div id="loading">
+	<h1>Preparing scene...<br/><br/></h1>
+</div>
+<script>
+	d3.select('a-assets').on("loaded", function(){
+		d3.select('#loading').transition().duration(2440).style('opacity', "0").remove();
+	});
+</script>
+
+
+  <script>
+	/*
+	* Switch from the oribt- camera to the look-controls camera when we enter VR mode 
+	*/
+	document.addEventListener("DOMContentLoaded", function(event) {
+		var scene = document.querySelector('a-scene');
+		if (scene.hasLoaded) addEventListeners();
+		else scene.addEventListener( 'loaded', addEventListeners );
+	});
+	function addEventListeners() {
+		
+		document.querySelector('a-scene').addEventListener('enter-vr', function(evt){
+			document.querySelector('#camera_orbit').setAttribute('camera', 'active', false);
+			document.querySelector('#camera_look').setAttribute('camera', 'active', true);
+		});
+		
+		document.querySelector('a-scene').addEventListener('exit-vr', function(evt){
+			document.querySelector('#camera_orbit').setAttribute('camera', 'active', true);
+			document.querySelector('#camera_look').setAttribute('camera', 'active', false);
+		});
+	} // end addEventListeners()
+	
+  </script>
+</body>
+
+</html>

@@ -66,6 +66,8 @@ AFRAME.registerComponent('dataplot', {
 		ylabel: { type: 'string', default:"" },
 		zlabel: { type: 'string', default:"" },
 		nochrome: { type: 'boolean', default:false },
+		showTicks: { type: 'boolean', default:true },
+		showTickLabels: { type: 'boolean', default:true },
 		showcolorbar: { type: 'boolean', default:true },
 		cage: { type: 'boolean', default:false },
 		numdecimalplaces: { type: 'number', default:4 },
@@ -303,24 +305,24 @@ function makeAxisAndKey(el, data, stats) {
 		}
 		
 		var textHeight = 0.05
-		if (i == 0) {
+		if (i == 0 && data.showTicks ) {
 			var marks = Math.round(stats.width/textHeight)
 			if (marks == 1) {
 				marks++;
 			}
-			makeAxisTicks(i, dim.v, el, marks, stats.minX, stats.maxX, data.numdecimalplaces)
-		} else if (i == 1) {
+			makeAxisTicks(i, dim.v, el, marks, stats.minX, stats.maxX, data.numdecimalplaces, data.showTickLabels)
+		} else if (i == 1 && data.showTicks) {
 			var marks = Math.round(stats.height/textHeight)
 			if (marks == 1) {
 				marks++;
 			}
-			makeAxisTicks(i, dim.v, el, marks, stats.minY, stats.maxY, data.numdecimalplaces)
-		} else if (i == 2) {
+			makeAxisTicks(i, dim.v, el, marks, stats.minY, stats.maxY, data.numdecimalplaces, data.showTickLabels)
+		} else if (i == 2 && data.showTicks) {
 			var marks = Math.round(stats.depth/textHeight)
 			if (marks == 1) {
 				marks++;
 			}
-			makeAxisTicks(i, dim.v, el, marks, stats.minZ, stats.maxZ, data.numdecimalplaces)
+			makeAxisTicks(i, dim.v, el, marks, stats.minZ, stats.maxZ, data.numdecimalplaces, data.showTickLabels)
 		}
 
 	})
@@ -332,7 +334,8 @@ function makeAxisAndKey(el, data, stats) {
 	if (data.showFloor) {
 		var floorNode = document.createElement("a-entity");
 		floorNode.setAttribute('geometry',{"primitive":"plane", "width":stats.width, "height":stats.depth});
-		floorNode.setAttribute('position',[stats.width/2, 0, stats.depth/2].join(" "));
+		// Small shift down the Y axis so that in case the floor is not transparent (to save GPU) it will not interfere with point sprites.
+		floorNode.setAttribute('position',[stats.width/2, -0.01, stats.depth/2].join(" "));
 		floorNode.setAttribute('rotation','-90 0 0');
 		floorNode.setAttribute('material',AFRAME.utils.styleParser.parse(data.floorMaterialParams));
 		el.appendChild(floorNode);
@@ -362,7 +365,7 @@ function createAxisLabels(el, data, stats) {
 	
 }
 
-function makeAxisTicks(i, dimStartAndEndVectors, el, marks, min, max, numdecimalplaces) {
+function makeAxisTicks(i, dimStartAndEndVectors, el, marks, min, max, numdecimalplaces, showTickLabels) {
 	var axisStats = []
 	var d = []
 
@@ -375,10 +378,10 @@ function makeAxisTicks(i, dimStartAndEndVectors, el, marks, min, max, numdecimal
 		var vScale = d3.scaleLinear().domain([0, 1]).range([min, max])
 		axisStats.push(vScale(v).toFixed(numdecimalplaces) * 1) 
 	})
-	makeTicks(el, d, dimStartAndEndVectors, i, axisStats)
+	makeTicks(el, d, dimStartAndEndVectors, i, axisStats, showTickLabels)
 }
 
-function makeTicks(el, tickVals, dimStartAndEndVectors, dimensionID, axisStats) {
+function makeTicks(el, tickVals, dimStartAndEndVectors, dimensionID, axisStats, showTickLabels) {
 	tickVals.forEach(function(perc, j) {
 		var v1 = getPointInBetweenByPerc(dimStartAndEndVectors[0], dimStartAndEndVectors[1], perc)
 		var v2;
@@ -404,7 +407,7 @@ function makeTicks(el, tickVals, dimStartAndEndVectors, dimensionID, axisStats) 
 
 		var nV = [v1, v2]
 		makeLine(el, nV, objName, 'xLine')
-		addText(el, v2Text, objName, textString, 'right', rot)
+		if (showTickLabels) { addText(el, v2Text, objName, textString, 'right', rot) }
 	
 	})
 
@@ -759,6 +762,8 @@ AFRAME.registerPrimitive('a-scatterplot', {
 		zlabel: 'dataplot.zlabel',
 		numdecimalplaces: 'dataplot.numdecimalplaces',
 		nochrome: 'dataplot.nochrome',
+		showticks: 'dataplot.showTicks',
+		showticklabels: 'dataplot.showTickLabels',
 		showfloor: 'dataplot.showFloor',
 		floormaterialparams: 'dataplot.floorMaterialParams',
 		cage: 'dataplot.cage',
