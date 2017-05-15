@@ -204,4 +204,4 @@ Feel free to open a GitHub Issue or to contact me directly at zrcanter [-at-] gm
 
 ### Special Thanks
 
-Thank you to the NASA-JPL Instrument Data Systems VR working group for helping in the creation of this tool. Also thanks to [Dan Moran](https://github.com/morandd) for his awesome additions to this project!
+Thank you to the NASA-JPL Instrument Data Systems VR working group for helping in the creation of this tool. Also thanks to [Dan Moran](https://github.com/morandd) for his awesome additions to this project! Check out his [AFrame-Heatmap](https://github.com/morandd/aframe-heatmap3d/) visualizer as well! 
